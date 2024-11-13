@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiDemoDataBinding.Models"
+             x:Class="MauiDemoDataBinding.MainPage">
+
+    <ContentPage.BindingContext>
+        <models:Product x:Name="product"
+                          ProductName="iPhone5"
+                          Price="999.99"
+                          Stock="5"/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label x:Name="lblName"
+                Text="{Binding Source={x:Reference product}, Path=ProductName}"
+                FontSize="18"
+                HorizontalOptions="Center" />
+            <Label x:Name="lblPrice"
+                Text="{Binding Source={x:Reference product}, Path=Price, StringFormat='$ {0:F2}'}"
+                FontSize="18"
+                HorizontalOptions="Center" />
+            <Label x:Name="lblStock"
+                Text="{Binding Source={x:Reference product}, Path=Stock, StringFormat='Quantity: {0}'}"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <!--<Button
+            x:Name="CounterBtn"
+            Text="Click here to DataBind" 
+            Clicked="CounterBtn_Clicked"
+            HorizontalOptions="Center" />-->
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

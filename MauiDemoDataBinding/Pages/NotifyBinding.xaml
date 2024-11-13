@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiDemoDataBinding.Pages.NotifyBinding"
+             Title="NotifyBinding">
+    <VerticalStackLayout>
+        <Entry Text="{Binding ProductName}"
+               FontSize="40"/>
+
+        <Entry Text="{Binding Price, StringFormat='$ {0:F2}'}"
+               FontSize="40"/>
+
+        <Entry Text="{Binding Path=Stock, StringFormat='Quantity: {0}'}"
+               FontSize="40"/>
+
+        <Button x:Name="btnUpdate"
+                Text="Update Product"
+                FontSize="20"
+                Clicked="btnUpdate_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
